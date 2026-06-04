@@ -4,7 +4,7 @@
       "name": "Server - App Debug",
       "type": "dotnet",
       "request": "launch",
-      "projectPath": "${workspaceFolder}/server/dotnet/Blackbaud.PaymentsAPI.Sample.Backend.csproj"
+      "projectPath": "${workspaceFolder}/Blackbaud.PaymentsAPI.Sample.Backend.csproj"
     },
   ]
 }
