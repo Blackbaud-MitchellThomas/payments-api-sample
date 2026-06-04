@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    // https://developer.blackbaud.com/apps/ (find your app)
+    "AuthClientId": "<Replace>",
+    "AuthClientSecret": "<Replace>",
+    // https://developer.blackbaud.com/subscriptions/
+    "GeneralSubscriptionKey": "<Replace>",
+    "PaymentsSubscriptionKey": "<Replace>"
+  }
+}

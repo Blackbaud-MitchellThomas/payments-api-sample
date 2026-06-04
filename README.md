@@ -2,22 +2,25 @@
 
 ## Overview
 
-This sample application demonstrates integrating with Blackbaud Payments API via several examples, both backend and front end. 
+This sample application demonstrates integrating with Blackbaud Payments API via several examples, both backend and front end.
 
 ## Server
 
 ### .NET Web API
 
-#### Run locally:
+#### Run locally
 
 - Download and install [.NET Core SDK](https://www.microsoft.com/net/core/)
 - Open Terminal/Command Prompt and type:
+
+```sh
+git clone https://github.com/blackbaud/payments-api-sample.git
+cd payments-api-sample/server/dotnet
 ```
-$  git clone https://github.com/blackbaud/payments-api-sample.git
-$  cd payments-api-sample/server/dotnet
-```
+
 - Duplicate **appsettings.json-sample** as **appsettings.Development.json** and fill in the missing values (all required).
-```
+
+```json
 {
     "AppSettings": {
         "AuthClientId": "<Your developer app ID>",
@@ -28,16 +31,22 @@ $  cd payments-api-sample/server/dotnet
     }
 }
 ```
+
 - Open Terminal/Command Prompt and type:
-```
+
+```sh
 dotnet restore
 ```
+
 - On a Mac, type:
-```
+
+```sh
 export ASPNETCORE_ENVIRONMENT=Development && dotnet run
 ```
+
 - On a PC, type:
-```
+
+```sh
 set ASPNETCORE_ENVIRONMENT=Development && dotnet run
 ```
 
@@ -51,12 +60,12 @@ The backend API depends on a front-end application to provide user interactions 
 
 Once you are set up, run the app locally by running these commands:
 
-```
+```sh
 npm i
 ng serve
 ```
 
-The output of `ng serve` will give you a link to navigate to the running app in your browser. 
+The output of `ng serve` will give you a link to navigate to the running app in your browser.
 
 **Note**: The API assumes the application is running on port 4200 (the Angular default).
 
@@ -70,7 +79,7 @@ The client side public-facing application integrated with the new Blackbaud Chec
 
 Once you are set up, run the app locally by running these commands:
 
-```
+```sh
 npm i
 ng serve
 ```
@@ -78,15 +87,19 @@ ng serve
 The output of `ng serve` will give you a link to navigate to the running app in your browser.
 
 ### HTML
+
 #### Run locally
 
 To serve the static html client code locally, the easiest option is to use [http-server](https://www.npmjs.com/package/http-server). `http-server` will serve the static content for access in the browser.
 
 - Navigate into directory
-```
+
+```sh
 cd client/html
 ```
+
 - Run `http-server`
-```
+
+```sh
 npx http-server .
 ```
