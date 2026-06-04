@@ -37,7 +37,7 @@ public class SessionService : ISessionService
             await _localFileDataAdapter.WriteDataAsync(new AuthenticationData());
 
             // Clear HttpContext
-            _httpContextAccessor.HttpContext.Session.Remove(ACCESS_TOKEN_NAME);
+            _httpContextAccessor.HttpContext!.Session.Remove(ACCESS_TOKEN_NAME);
             _httpContextAccessor.HttpContext.Session.Remove(REFRESH_TOKEN_NAME);
             _httpContextAccessor.HttpContext.Session.Remove(ACCESS_TOKEN_EXPIRES);
             _httpContextAccessor.HttpContext.Session.Remove(REFRESH_TOKEN_EXPIRES);
@@ -125,7 +125,7 @@ public class SessionService : ISessionService
     /// <param name="verifier">The code verifier</param>
     public void SetStateVerifier(string state, string verifier)
     {
-        _httpContextAccessor.HttpContext.Session.SetString(state, verifier);
+        _httpContextAccessor.HttpContext!.Session.SetString(state, verifier);
     }
 
     /// <summary>
@@ -134,7 +134,7 @@ public class SessionService : ISessionService
     /// <param name="state">The state</param>
     public void ClearStateVerifier(string state)
     {
-        _httpContextAccessor.HttpContext.Session.Remove(state);
+        _httpContextAccessor.HttpContext!.Session.Remove(state);
     }
 
     /// <summary>
@@ -142,7 +142,10 @@ public class SessionService : ISessionService
     /// </summary>
     public void SetTokens(RefreshTokenResponseModel response)
     {
-        _httpContextAccessor.HttpContext.Session.SetString(ACCESS_TOKEN_NAME, response.AccessToken);
+        _httpContextAccessor.HttpContext!.Session.SetString(
+            ACCESS_TOKEN_NAME,
+            response.AccessToken
+        );
         _httpContextAccessor.HttpContext.Session.SetString(
             ACCESS_TOKEN_EXPIRES,
             $"{DateTimeOffset.UtcNow.AddSeconds(response.ExpiresIn)}"
@@ -163,7 +166,7 @@ public class SessionService : ISessionService
     private bool TryGetString(string name, out string value)
     {
         value = null!;
-        if (_httpContextAccessor.HttpContext.Session.TryGetValue(name, out var valueBytes))
+        if (_httpContextAccessor.HttpContext!.Session.TryGetValue(name, out var valueBytes))
         {
             value = System.Text.Encoding.UTF8.GetString(valueBytes);
             return true;
