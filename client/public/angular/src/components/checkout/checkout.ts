@@ -6,7 +6,7 @@ import {
   CheckoutCompleteEvent,
   CheckoutConfiguration,
   CheckoutModalPaymentOptions,
-  CheckoutWorkflowMode,
+  CheckoutWorkflowMode
 } from '@blackbaud/checkout';
 
 import {
@@ -60,7 +60,6 @@ export class Checkout implements OnInit {
         const checkoutConfig: CheckoutConfiguration = {
           workflowMode: CheckoutWorkflowMode.Modal,
           paymentConfigurationId: configResponse.payment_configuration_id,
-          applicationName: 'Payments API',
           paymentMethodOptions: {
             card: {
               enabled: true,
@@ -71,13 +70,13 @@ export class Checkout implements OnInit {
             wallets: {
               applePayEnabled: true,
               googlePayEnabled: true,
-              amazonPayEnabled: true,
+              amazonPayEnabled: false,
             },
             payPal: {
               enabled: true,
             },
             dafPay: {
-              enabled: true,
+              enabled: false,
             },
           },
           primaryColor: '#1870B8',
