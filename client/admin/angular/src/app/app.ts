@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,5 +9,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
+  #titleService: Title = inject(Title);
+
   protected readonly title = signal('angular');
+  constructor() {
+    this.#titleService.setTitle('Admin');
+  }
 }

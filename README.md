@@ -18,14 +18,17 @@ git clone https://github.com/blackbaud/payments-api-sample.git
 cd payments-api-sample/server/dotnet
 ```
 
-- Duplicate **appsettings.json-sample** as **appsettings.Development.json** and fill in the missing values (all required).
+- Duplicate **appsettings.Development.json-sample** as **appsettings.Development.json** and fill in the missing values (all required).
+
+Subscription keys can be obtained from the [My subscriptions](https://developer.blackbaud.com/subscriptions/) page.
+
+Auth client id and secret are specific to your application and be found in the [My applications](https://developer.blackbaud.com/apps/) page after selecting your app.
 
 ```json
 {
     "AppSettings": {
         "AuthClientId": "<Your developer app ID>",
         "AuthClientSecret": "<Your developer app secret>",
-        "AuthRedirectUri": "https://localhost:5001/auth/callback",
         "GeneralSubscriptionKey": "<Your Standard subscription key>",
         "PaymentsSubscriptionKey": "<Your Payments subscription key>"
     }
